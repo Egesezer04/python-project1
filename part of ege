@@ -1,0 +1,12 @@
+from datetime import datetime
+import datetime 
+import time
+import os
+
+print("WELCOME TO THE STUDY PROGRAM")
+
+def My_input():
+    My_subject={} 
+    My_subject_num= int(input("how many subject do you plan ?"))
+
+    # write a "for" loop for get inputs many times
