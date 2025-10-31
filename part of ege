@@ -29,4 +29,9 @@ def Making_plan(My_subjects):
 
         My_result= ( details["Exam Date"].date.today()).days  #calculates the number of days since the exam date
         if My_result <= 0:
+            My_plan.append(f"{subject}: it's too late now")
+        else:
+            My_plan.append(f"{subject}: {My_result} day left, you need {details['Time']} work!! ") #Add study plan info for each subject
+
+    return My_plan
 
