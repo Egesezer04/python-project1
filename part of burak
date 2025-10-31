@@ -1,0 +1,15 @@
+def Writing_plan(My_plan):
+    # Opens (or creates) a text file called "study_Program.txt" in write mode ("w")
+    with open("study_Program.txt", "w") as file:
+        file.write("STUDY PROGRAM")
+        file.write("\n")
+        file.write("\n")
+        file.writelines(line + "\n" for line in My_plan)
+        print("\n""\n" "it has been written")
+
+
+
+        def Reading_plan(My_plan):
+            # Opens the same file but in "read" mode ("r")
+            with open("study_Program.txt","r") as file:
+                file.read()
