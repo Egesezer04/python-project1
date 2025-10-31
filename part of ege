@@ -6,13 +6,16 @@ import os
 print("WELCOME TO THE STUDY PROGRAM")
 
 def My_input():
-    My_subject={} 
+    My_subjects={} 
     My_subject_num= int(input("how many subject do you plan ?"))
 
-    # write a "for" loop for get inputs many times 
+    # write a "for" loop for get different inputs many times 
+
     for i in range(My_subject_num):
         Subject_name= input(f"{i+1}. subject name : ")
-        subject_time= float(input(f"How many hours do you want to study{Subject_name}? : "))
+        Subject_time= float(input(f"How many hours do you want to study{Subject_name}? : "))
         My_exam_date= input(f"Please enter your {Subject_name}'s exam day(year-month-day):")
-        
-                                  
+        My_exam_date2=datetime.strptime(My_exam_date,"%Y-%m-%d").date() 
+        My_subjects[Subject_name]={"Time": Subject_time,"exam date": My_exam_date2}
+
+    return My_subjects                       
