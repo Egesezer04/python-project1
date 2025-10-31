@@ -19,3 +19,14 @@ def My_input():
         My_subjects[Subject_name]={"Time": Subject_time,"exam date": My_exam_date2}
 
     return My_subjects                      
+
+from datetime import date
+
+def Making_plan(My_subjects):    
+    My_plan = []                 
+
+    for subject, details in My_subjects.items(): 
+
+        My_result= ( details["Exam Date"].date.today()).days  #calculates the number of days since the exam date
+        if My_result <= 0:
+
