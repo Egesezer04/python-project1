@@ -1,8 +1,17 @@
 from datetime import date 
+
 def Making_plan(My_subjects):
     My_plan = []
 
     for subject, details in My_subjects.items():
 
         My_result= ( details["Exam date"].date.today()).days #calculates the number of days since the exam date
-        
+
+
+        if My_result <= 0:
+            My_plan.append(f"{subject}: it's too late now")
+
+        else:
+            My_plan.append(f"{subject}: {My_result} days left, you need {details['Time0']} work!!" )#Add study plan info for each subject
+
+    return My_plan
