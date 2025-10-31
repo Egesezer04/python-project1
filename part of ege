@@ -13,9 +13,12 @@ def My_input():
 
     for i in range(My_subject_num):
         Subject_name= input(f"{i+1}. subject name : ")
-        Subject_time= float(input(f"How many hours do you want to study{Subject_name}? : "))
-        My_exam_date= input(f"Please enter your {Subject_name}'s exam day(year-month-day):")
-        My_exam_date2=datetime.strptime(My_exam_date,"%Y-%m-%d").date() 
-        My_subjects[Subject_name]={"Time": Subject_time,"exam date": My_exam_date2}
+        Subject_time= float(input(f"How many hours do you want to study {Subject_name}? : "))
+        My_exam_date1= input(f"Please enter your {Subject_name}'s exam day(year-month-day) :")
+        My_exam_date2=datetime.strptime(My_exam_date1,"%Y-%m-%d").date() 
+        My_subjects[Subject_name]={
+            "Time":Subject_time,
+            "Exam date":My_exam_date2
+        }
 
     return My_subjects                      
