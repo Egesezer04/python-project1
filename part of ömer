@@ -7,7 +7,6 @@ def Making_plan(My_subjects):
 
         My_result= ( details["Exam date"].date.today()).days #calculates the number of days since the exam date
 
-
         if My_result <= 0:
             My_plan.append(f"{subject}: it's too late now")
 
