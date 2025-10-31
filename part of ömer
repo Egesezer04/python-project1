@@ -1,0 +1,8 @@
+from datetime import date 
+def Making_plan(My_subjects):
+    My_plan = []
+
+    for subject, details in My_subjects.items():
+
+        My_result= ( details["Exam date"].date.today()).days #calculates the number of days since the exam date
+        
