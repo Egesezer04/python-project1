@@ -9,7 +9,7 @@ def My_input():
     My_subjects={} 
     My_subject_num= int(input("how many subject do you plan ?"))
 
-    # write a "for" loop for get different inputs many times 
+    # write a "for" loop for get different inputs many times #
 
     for i in range(My_subject_num):
         Subject_name= input(f"{i+1}. subject name : ")
