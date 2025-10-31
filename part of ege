@@ -18,4 +18,4 @@ def My_input():
         My_exam_date2=datetime.strptime(My_exam_date,"%Y-%m-%d").date() 
         My_subjects[Subject_name]={"Time": Subject_time,"exam date": My_exam_date2}
 
-    return My_subjects                       
+    return My_subjects                      
