@@ -1,0 +1,23 @@
+def main():
+
+
+    while True:
+
+        My_subjects = My_input()
+        My_plan = Making_plan(My_subjects)
+        My_Plan_Show(My_plan)
+        Writing_plan(My_plan)
+        my_Alert(My_plan)
+
+
+        New_program = input("do you want to make new program (Yes/No)?")
+
+        if New_program != "Yes":
+            print("exiting the program")
+            break
+        else:
+            print("well, let us make new program\n")
+            My_input()
+
+if__name__=="__main__":
+    main()
