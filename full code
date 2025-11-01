@@ -1,0 +1,103 @@
+from datetime import datetime
+import datetime 
+import time
+import os
+
+print("WELCOME TO THE STUDY PROGRAM")
+
+def My_input():
+    My_subjects={} 
+    My_subject_num= int(input("how many subject do you plan ?"))
+
+    # write a "for" loop for get different inputs many times 
+
+    for i in range(My_subject_num):
+        Subject_name= input(f"{i+1}. subject name : ")
+        Subject_time= float(input(f"How many hours do you want to study {Subject_name}? : "))
+        My_exam_date1= input(f"Please enter your {Subject_name}'s exam day(year-month-day) :")
+        My_exam_date2=datetime.strptime(My_exam_date1,"%Y-%m-%d").date() 
+        My_subjects[Subject_name]={
+            "Time":Subject_time,
+            "Exam date":My_exam_date2
+        }
+
+    return My_subjects   
+
+
+def Making_plan(My_subjects):
+    My_plan = []
+
+    for subject, details in My_subjects.items():
+
+        My_result= ( details["Exam date"].date.today()).days #calculates the number of days since the exam date
+
+        if My_result <= 0:
+            My_plan.append(f"{subject}: it's too late now")
+
+        else:
+            My_plan.append(f"{subject}: {My_result} days left, you need {details['Time0']} work!!" )#Add study plan info for each subject
+
+    return My_plan
+
+
+def Writing_plan(My_plan):
+    # Opens (or creates) a text file called "study_Program.txt" in write mode ("w")
+    with open("study_Program.txt", "w") as file:
+        file.write("STUDY PROGRAM")
+        file.write("\n")
+        file.write("\n")
+        file.writelines(line + "\n" for line in My_plan)
+        print("\n""\n" "it has been written")
+
+
+
+        def Reading_plan(My_plan):
+            # Opens the same file but in "read" mode ("r")
+            with open("study_Program.txt","r") as file:
+                file.read()
+
+
+def My_Plan_Show(My_plan):
+    print("Final version of study_Program.txt ")
+    print("\n")
+
+    # print each line of the plan
+    for line in My_plan:
+        print(line)
+
+
+from datetime import datetime
+import time
+
+def my_Alert(My_plan):
+    print("İT'S TİME TO STUDY !!!")
+
+    # simulate 5 study reminders
+    for i in range(5):
+        # show the current time for each reminder 
+        print(f"[{datetime.now().strftime('%H:%M')}] let's start!")
+
+        # wait 1 second (this might be 1 hour)
+        time.sleep(1)
+
+
+def main():
+    while True:
+        My_subjects = My_input()
+        My_plan = Making_plan(My_subjects)
+        My_Plan_Show(My_plan)
+        Writing_plan(My_plan)
+        my_Alert(My_plan)
+
+        New_program = input("do you want to make new program (Yes/No)?")
+
+        if New_program != "Yes":
+            print("exiting the program")
+            break
+        else:
+            print("well, let us make new program\n")
+            My_input()
+
+
+if __name__ == "__main__":
+    main()
