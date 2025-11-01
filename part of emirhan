@@ -1,0 +1,22 @@
+def My_Plan_Show(My_plan):
+    print("Final version of study_Program.txt ")
+    print("\n")
+
+    # print each line of the plan
+    for line in My_plan:
+        print(line)
+
+
+from datetime import datetime
+
+def my_Alert(My_plan):
+    print("İT'S TİME TO STUDY !!!")
+
+    # simulate 5 study reminders
+    for i in range(5):
+        # show the current time for each reminder 
+        print(f"[{datetime.now().strftime('%H:%M')}] let's start!")
+
+        # wait 1 second (in real system this might be 1 hour)
+        time.sleep(1)
+        
