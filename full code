@@ -3,7 +3,6 @@ import datetime
 import time
 import os
 
-print("WELCOME TO THE STUDY PROGRAM")
 
 def My_input():
     My_subjects={} 
@@ -21,21 +20,22 @@ def My_input():
             "Exam date":My_exam_date2
         }
 
-    return My_subjects   
+    return My_subjects                      
 
+ 
 
 def Making_plan(My_subjects):
     My_plan = []
 
     for subject, details in My_subjects.items():
 
-        My_result= ( details["Exam date"].date.today()).days #calculates the number of days since the exam date
+        My_result= ( details["Exam date"]-date.today()).days #calculates the number of days since the exam date
 
         if My_result <= 0:
             My_plan.append(f"{subject}: it's too late now")
 
         else:
-            My_plan.append(f"{subject}: {My_result} days left, you need {details['Time0']} work!!" )#Add study plan info for each subject
+            My_plan.append(f"{subject}: {My_result} days left, you need {details['Time']} work!!" )#Add study plan info for each subject
 
     return My_plan
 
@@ -51,10 +51,12 @@ def Writing_plan(My_plan):
 
 
 
-        def Reading_plan(My_plan):
-            # Opens the same file but in "read" mode ("r")
-            with open("study_Program.txt","r") as file:
-                file.read()
+def Reading_plan(My_plan):
+# Opens the same file but in "read" mode ("r")
+    with open("study_Program.txt","r") as file:
+        file.read()
+        print("\n study_Program.txt has been read")
+            
 
 
 def My_Plan_Show(My_plan):
@@ -66,8 +68,7 @@ def My_Plan_Show(My_plan):
         print(line)
 
 
-from datetime import datetime
-import time
+from datetime import datetime,date
 
 def my_Alert(My_plan):
     print("İT'S TİME TO STUDY !!!")
@@ -81,7 +82,10 @@ def my_Alert(My_plan):
         time.sleep(1)
 
 
+
 def main():
+    print("WELCOME TO THE STUDY PROGRAM")
+
     while True:
         My_subjects = My_input()
         My_plan = Making_plan(My_subjects)
@@ -101,3 +105,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
